@@ -20,6 +20,8 @@ public class SpringSecurityApplication {
     public static void main(String[] args) {
 
         logger.info("Jenkins is up and running");
+        logger.info("New job has been triggered");
+
         SpringApplication.run(SpringSecurityApplication.class, args);
     }
 
