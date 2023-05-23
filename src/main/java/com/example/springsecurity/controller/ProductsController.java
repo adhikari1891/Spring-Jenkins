@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/products")
+@RequestMapping("/products")
 public class ProductsController {
 
     @Autowired
@@ -21,13 +21,13 @@ public class ProductsController {
     }
 
     @GetMapping("/getAll")
-//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<Product> getAllProducts(){
         return service.getProducts();
     }
 
     @GetMapping("/get/{id}")
-//    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public Product getProductById(@PathVariable int id){
         return service.getProduct(id);
     }

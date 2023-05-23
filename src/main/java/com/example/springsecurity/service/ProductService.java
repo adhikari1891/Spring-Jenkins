@@ -21,18 +21,18 @@ public class ProductService {
     @Autowired
     private UserDataRepo userDataRepo;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-//    @PostConstruct
-//    public void loadProductsFromDB(){
-//        productList = IntStream.rangeClosed(1,100)
-//                .mapToObj(i -> Product.builder()
-//                        .productId(i)
-//                        .name("product" + i)
-//                        .qty(new Random().nextInt(10))
-//                        .price(new Random().nextInt(5000)).build())
-//                .collect(Collectors.toList());
-//    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @PostConstruct
+    public void loadProductsFromDB(){
+        productList = IntStream.rangeClosed(1,100)
+                .mapToObj(i -> Product.builder()
+                        .productId(i)
+                        .name("product" + i)
+                        .qty(new Random().nextInt(10))
+                        .price(new Random().nextInt(5000)).build())
+                .collect(Collectors.toList());
+    }
 
     public List<Product> getProducts(){
         return productList;
@@ -46,7 +46,7 @@ public class ProductService {
     }
 
     public String addUser(UserData userData){
-//        userData.setPassword(passwordEncoder.encode(userData.getPassword()));
+        userData.setPassword(passwordEncoder.encode(userData.getPassword()));
         userDataRepo.save(userData);
         return "user added to system";
     }
