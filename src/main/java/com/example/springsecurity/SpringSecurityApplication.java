@@ -19,6 +19,7 @@ public class SpringSecurityApplication {
 
     public static void main(String[] args) {
 
+        logger.info("Pipeline has been created");
 
         SpringApplication.run(SpringSecurityApplication.class, args);
     }
